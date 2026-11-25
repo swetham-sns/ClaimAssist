@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Missing Document Follow-up Agent</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eef2f7;
+    color: #1e293b;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 22px 8%;
+}
+
+header h2 span {
+    color: #38bdf8;
+}
+
+.hero {
+    background: linear-gradient(120deg, #102a43, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 45px 15px;
+}
+
+.hero h1 {
+    margin-bottom: 12px;
+    font-size: 30px;
+}
+
+.hero p {
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 0 16px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    text-align: center;
+    color: #102a43;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    color: #2563eb;
+    margin: 25px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin: 16px 0 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    background: white;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #60a5fa;
+    border-color: #2563eb;
+}
+
+input[readonly] {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+small {
+    display: block;
+    color: #64748b;
+    margin-top: 6px;
+}
+
+.tracking-note {
+    background: #eff6ff;
+    padding: 12px;
+    border-radius: 7px;
+    color: #1e40af;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: 30px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#message {
+    display: none;
+    padding: 15px;
+    margin-top: 18px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.success {
+    display: block !important;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.error {
+    display: block !important;
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 40px;
+}
+
+@media(max-width: 600px) {
+    .card {
+        padding: 18px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Claim<span>Assist</span></h2>
+    <p>Smart Insurance Automation</p>
+</header>
+
+<section class="hero">
+    <h1>Missing-Document Follow-up Agent</h1>
+    <p>
+        Submit and Track Your Insurance Claim Documents
+    </p>
+</section>
+
+<div class="container">
+<div class="card">
+
+<h2>Claim Submission Form</h2>
+<p class="subtitle">
+Enter your claim information below
+</p>
+
+<form id="claimForm">
+
+<h3 class="section-title">
+Customer Information
+</h3>
+
+<!-- 1 -->
+<label>1. Claim ID</label>
+<input
+    type="text"
+    name="Claim_ID"
+    placeholder="Enter Claim ID"
+    required
+>
+
+<!-- 2 -->
+<label>2. Customer Name</label>
+<input
+    type="text"
+    name="Customer_Name"
+    placeholder="Enter Customer Name"
+    required
+>
+
+<!-- 3 -->
+<label>3. Customer Email</label>
+<input
+    type="email"
+    name="Customer_Email"
+    placeholder="Enter Email Address"
+    required
+>
+
+<!-- 4 -->
+<label>4. Missing Documents</label>
+<select
+    name="Missing_Documents"
+    multiple
+    required
+>
+    <option value="ID Proof">ID Proof</option>
+    <option value="Insurance Form">Insurance Form</option>
+    <option value="Medical Report">Medical Report</option>
+    <option value="Medical Bills">Medical Bills</option>
+    <option value="Discharge Summary">Discharge Summary</option>
+    <option value="Other">Other</option>
+</select>
+
+<small>Hold Ctrl to select multiple documents on laptop.</small>
+
+<!-- Upload -->
+<label>Upload Documents</label>
+<input
+    type="file"
+    name="Upload_Documents"
+    id="Upload_Documents"
+    multiple
+    accept=".pdf,.jpg,.jpeg,.png"
+>
+<small>Accepted formats: PDF, JPG, PNG.</small>
+
+<!-- 5 -->
+<label>5. Deadline</label>
+<input
+    type="date"
+    name="Deadline"
+    required
+>
+
+<h3 class="section-title">
+Automated Follow-up Tracking
+</h3>
+
+<div class="tracking-note">
+These tracking details are managed by the backend automation.
+</div>
+
+<!-- 6 -->
+<label>6. Next Reminder Date</label>
+<input
+    type="date"
+    name="Next_Reminder_Date"
+    readonly
+    value=""
+>
+
+<!-- 7 -->
+<label>7. Reminder Count</label>
+<input
+    type="number"
+    name="Reminder_Count"
+    value="0"
+    readonly
+>
+
+<!-- 8 -->
+<label>8. Last Reminder Date</label>
+<input
+    type="text"
+    name="Last_Reminder_Date"
+    value="Not Sent"
+    readonly
+>
+
+<!-- 9 -->
+<label>9. Escalation Status</label>
+<input
+    type="text"
+    name="Escalation_Status"
+    value="Not Escalated"
+    readonly
+>
+
+<!-- 10 -->
+<label>10. Claim Status</label>
+<input
+    type="text"
+    name="Claim_Status"
+    value="Pending Documents"
+    readonly
+>
+
+<!-- 11 -->
+<label>11. Escalated At</label>
+<input
+    type="text"
+    name="Escalated_At"
+    value="Not Escalated"
+    readonly
+>
+
+<!-- SUBMIT BUTTON -->
+<button type="submit" id="submitBtn">
+    SUBMIT CLAIM
+</button>
+
+<div id="message" role="status"></div>
+
+</form>
+</div>
+</div>
+
+<footer>
+    <p>Missing-Document Follow-up Agent</p>
+    <p>Supabase | SNS Agent Workbench | Gmail Automation</p>
+</footer>
+
+<script>
+
+// Replace with your actual Workbench Webhook URL
+const WEBHOOK_URL = "https://api.agents.snsihub.ai/webhook-test/813589de-f8e5-4c3a-892b-b02299e501b6";
+
+const form = document.getElementById("claimForm");
+const message = document.getElementById("message");
+const submitBtn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    message.className = "";
+    message.style.display = "none";
+
+    if (!WEBHOOK_URL.startsWith("http")) {
+        message.className = "error";
+        message.textContent =
+            "Please configure your Webhook URL.";
+        return;
+    }
+
+    const data = new FormData(form);
+
+    // Handle multiple selected documents
+    const selected = form.elements["Missing_Documents"];
+
+    data.delete("Missing_Documents");
+
+    Array.from(selected.selectedOptions).forEach(option => {
+        data.append("Missing_Documents", option.value);
+    });
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    try {
+
+        const response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            body: data
+        });
+
+        if (!response.ok) {
+            throw new Error("Webhook submission failed");
+        }
+
+        message.className = "success";
+        message.textContent =
+            "Claim submitted successfully! Your claim is being processed.";
+
+        form.reset();
+
+    } catch (error) {
+
+        message.className = "error";
+        message.textContent =
+            "Submission failed. Please check your webhook connection.";
+
+        console.error(error);
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SUBMIT CLAIM";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
